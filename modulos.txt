@@ -1,0 +1,10 @@
+modulos do app:
+	1-empresa
+	2-clientes(consumo, revenda)
+	3-fornecedor
+	4-produtos/estoque
+	5-vendas(campanhas e PDV)
+
+	1-usar ia para texto e markerting
+	2-usar ia para gerar imagem
+	3- ia para gerar video

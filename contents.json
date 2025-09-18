@@ -1,0 +1,108 @@
+{
+  "list_elements_menuSidebar": [
+    {
+        "title": "Fiscal/Tributario",
+        "icon": "assets/icon-registered.png"
+    },
+    {
+        "title": "Financeiro e Contabil",
+        "icon": "assets/icon-perfil.png"
+    },
+    {
+        "title": "Estoque e Logistica",
+        "icon": "assets/icon-folder.png"
+    },
+    {
+        "title": "Vendas e CRM",
+        "icon": "assets/icon-registered.png"
+    },
+    {
+        "title": "Recursos Humanos",
+        "icon": "assets/icon-registered.png"
+    },
+    {
+        "title": "Produção",
+        "icon": "assets/icon-registered.png"
+    }
+  ],
+  "list_elements_contentSidebar": {
+    "Fiscal/Tributario": [
+      {
+        "title": "Emissão de NF-e, NFC-e"
+      },
+      {
+        "title": "SPED"
+      },
+      {
+        "title": "Cálculos de impostos"
+      }
+    ],
+    "Financeiro e Contabil": [
+      {
+        "title": "Contas a pagar"
+      },
+      {
+        "title": "Contas a receber"
+      },
+      {
+        "title": "Fluxo de caixa"
+      },
+      {
+        "title": "Conciliação bancária"
+      }
+    ],
+    "Estoque e Logistica": [
+      {
+        "title": "Entrada"
+      },
+      {
+        "title": "Saida"
+      },
+      {
+        "title": "Inventário"
+      },
+      {
+        "title": "Fornecedores"
+      }
+    ],
+    "Vendas e CRM": [
+      {
+        "title": "Pedidos"
+      },
+      {
+        "title": "Clientes"
+      },
+      {
+        "title": "Funil de Vendas"
+      }
+    ],
+    "Recursos Humanos": [
+      {
+        "title": "Folha de pagamento"
+      },
+      {
+        "title": "Registro de Ponto"
+      },
+      {
+        "title": "Beneficios"
+      }
+    ],
+    "Produção": [
+      {
+        "title": "Ordem de produção"
+      },
+      {
+        "title": "Custos"
+      },
+      {
+        "title": "Controle de Insumos"
+      }
+    ]
+  },
+  "Opcao_caixa": [
+    "Abrir caixa",
+    "Fechar caixa",
+    "Consultar caixa",
+    "Reabrir caixa"
+  ]
+}
