@@ -1,21 +1,10 @@
-name: Web Build + Deployment to GitHub Pages
+name: Web Build
 
 on:
   push:
     branches:
-      - master
       - main
-
-  pull_request:
-    branches:
-      - master
-      - main
-  
-  workflow_dispatch:
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+      - dev
 
 jobs:
   build:
@@ -25,10 +14,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Python 3.13.5
+    - name: Set up Python 3.11.6
       uses: actions/setup-python@v2
       with:
-        python-version: 3.13.5
+        python-version: 3.11.6
 
     - name: Install dependencies
       run: |
@@ -40,39 +29,19 @@ jobs:
       with:
         flutter-version: '3.19.0'
 
-    - name: Flet Build Web
+    - name: Build with Flet
       run: |
-            echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}, USER: ${GITHUB_REPOSITORY%/*}, PROJECT_BASE_URL: flet build web --base-url ${GITHUB_REPOSITORY#*/} --route-url-strategy hash
+        flet build web
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: web-build-artifact
-        path: build/web
+        name: package
+        path: |
+          build/
+          dist/
+          bin/
+          lib/
+          include/
+          src/
         if-no-files-found: error
-
-deploy:
-  needs: build
-
-  runs-on: windows-latest
-
-
-  permissions:
-    pages: write
-    id-token: write
-
-  environment:
-    name: github-pages
-    url: ${{ steps.deployments.outputs.page_url }}
-
-  steps:
-    - name: Setup Pages
-      uses: actions/configure-pages@v5
-
-    - name: Deploy to GitHub Pages
-      if: github.event_name == 'push'
-      id: deployment
-      uses: actions/deploy-pages@v4.0.5
-      with:
-        artifact: web-build-artifact
-    
