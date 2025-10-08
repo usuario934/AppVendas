@@ -31,8 +31,7 @@ jobs:
 
     - name: Build with Flet
       run: |
-        pip install -U rich
-        flet build web
+        PYTHONIOENCODING=utf-8 flet build web
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
