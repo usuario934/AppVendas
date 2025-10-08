@@ -1,0 +1,78 @@
+name: Web Build + Deployment to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+  pull_request:
+    branches:
+      - master
+      - main
+  
+  workflow_dispatch:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python 3.13.5
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.13.5
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+  
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.19.0'
+
+    - name: Flet Build Web
+      run: |
+            echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}, USER: ${GITHUB_REPOSITORY%/*}, PROJECT_BASE_URL: flet build web --base-url ${GITHUB_REPOSITORY#*/} --route-url-strategy hash
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: web-build-artifact
+        path: build/web
+        if-no-files-found: error
+
+deploy:
+  needs: build
+
+  runs-on: windows-latest
+
+
+  permissions:
+    pages: write
+    id-token: write
+
+  environment:
+    name: github-pages
+    url: ${{ steps.deployments.outputs.page_url }}
+
+  steps:
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+
+    - name: Deploy to GitHub Pages
+      if: github.event_name == 'push'
+      id: deployment
+      uses: actions/deploy-pages@v4.0.5
+      with:
+        artifact: web-build-artifact
+    
