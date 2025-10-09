@@ -31,7 +31,7 @@ jobs:
 
     - name: Build with Flet
       run: |
-        PYTHONIOENCODING=utf-8 flet build web
+        flet build web
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
