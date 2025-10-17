@@ -1,5 +1,5 @@
 from typing import Optional
-from AppDesktop.components import SearchBox
+from SearchBox import Search
 import flet as ft
 
 
@@ -40,7 +40,7 @@ class CustomTable(ft.Container):
                             ft.ElevatedButton("Relatório", ft.Icons.ASSIGNMENT,
                                               style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(4)),
                                               disabled=True),
-                            SearchBox.Search(heigth=35),
+                            Search(heigth=35),
                             ft.ElevatedButton("Filtro", ft.Icons.FILTER_ALT,
                                               style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(4)),
                                               disabled=True)
@@ -502,4 +502,5 @@ class Table(ft.Container):
 #         )
 #     ))
 #
+
 # ft.app(main)
