@@ -1,6 +1,6 @@
 from typing import Literal
 import flet as ft
-from AppDesktop.components.SelectionBox import Selection
+from SelectionBox import Selection
 
 
 class ContainerContents(ft.Container):
@@ -457,4 +457,5 @@ class ContainerContents(ft.Container):
 #             if ctrl.data != None:
 #                 print(f"{type(ctrl)} -> data: {ctrl.data}")
 #
+
 # ft.app(target=funcao_teste)
