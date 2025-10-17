@@ -1,5 +1,5 @@
 import flet as ft
-from AppDesktop.css import MenuStyle, ButtonStyle, TextField
+from .css import MenuStyle, ButtonStyle, TextField
 
 class Search(ft.Container):
     def __init__(self,
@@ -97,4 +97,5 @@ class Search(ft.Container):
 #         spacing=0
 #     ))
 #
+
 #
