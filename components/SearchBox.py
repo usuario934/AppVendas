@@ -1,5 +1,5 @@
 import flet as ft
-from .css import MenuStyle, ButtonStyle, TextField
+# from css import MenuStyle, ButtonStyle, TextField
 
 class Search(ft.Container):
     def __init__(self,
@@ -34,12 +34,21 @@ class Search(ft.Container):
             height=self.height,
             content=ft.Row(
                 controls=[
-                    ft.IconButton(height=self.height, **ButtonStyle.button_search_icon, on_click=self.get_search),
+                    ft.IconButton(height=self.height, 
+                                  icon=ft.Icons.SEARCH_ROUNDED,
+                                  icon_size=18,
+                                  icon_color="#cccccc",
+                                  hover_color="transparent",
+                                  padding=0, 
+                                  on_click=self.get_search),
                     self.__search
                 ],
                 expand=True
             ),
-            **MenuStyle.container_search
+            bgcolor="white",
+            border_radius=ft.border_radius.all(4),
+            border=ft.border.all(2, "#cccccc"),
+            padding=ft.padding.symmetric(0, 5)
         )
 
     # --------------------------------------------------------------------------------------------------------------
@@ -49,7 +58,13 @@ class Search(ft.Container):
     # --------------------------------------------------------------------------------------------------------------
 
     def content_field_search(self):
-        return ft.TextField(expand=True, text_size=self.size, **TextField.textfield_search)
+        return ft.TextField(expand=True, 
+                            text_size=self.size, 
+                            hint_text="Buscar",
+                            text_align=ft.alignment.center_left,
+                            content_padding=0,
+                            border_color="transparent"
+                           )
 
     # --------------------------------------------------------------------------------------------------------------
     #
@@ -99,3 +114,4 @@ class Search(ft.Container):
 #
 
 #
+
