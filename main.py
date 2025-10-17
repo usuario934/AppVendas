@@ -1,5 +1,6 @@
 import json
 import flet as ft
+import sys
 
 from css import SidebarStyle
 from css import ButtonStyle
@@ -9,6 +10,8 @@ from AppDesktop.components.Dropdown import DropdownApp
 from AppDesktop.components.ContainerWithLegend import ContainerContents
 from AppDesktop.components.CustomTable import CustomTable, Table
 from time import sleep
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 class MenuSideBar(ft.Row):
     def __init__(self, option_menu: list = None, option_submenu: dict = None):
@@ -533,6 +536,7 @@ def main(page: ft.Page) -> None:
     # --------------------------------------------------------------------------------------------------------------
 
     page.add(ft.Row(controls=[sidebar, col], expand=True, spacing=0))
+
 
 
 ft.app(target=main)
