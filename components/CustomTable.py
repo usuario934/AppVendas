@@ -1,5 +1,5 @@
 from typing import Optional
-from SearchBox import Search
+from .SearchBox import Search
 import flet as ft
 
 
@@ -504,3 +504,4 @@ class Table(ft.Container):
 #
 
 # ft.app(main)
+
