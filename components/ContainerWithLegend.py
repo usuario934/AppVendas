@@ -1,6 +1,6 @@
 from typing import Literal
 import flet as ft
-from SelectionBox import Selection
+from .SelectionBox import Selection
 
 
 class ContainerContents(ft.Container):
@@ -459,3 +459,4 @@ class ContainerContents(ft.Container):
 #
 
 # ft.app(target=funcao_teste)
+
