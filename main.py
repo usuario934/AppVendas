@@ -5,10 +5,10 @@ import sys
 from css import SidebarStyle
 from css import ButtonStyle
 from css import MenuStyle
-from AppDesktop.components.SearchBox import Search
-from AppDesktop.components.Dropdown import DropdownApp
-from AppDesktop.components.ContainerWithLegend import ContainerContents
-from AppDesktop.components.CustomTable import CustomTable, Table
+from .components.SearchBox import Search
+from .components.Dropdown import DropdownApp
+from .components.ContainerWithLegend import ContainerContents
+from .components.CustomTable import CustomTable, Table
 from time import sleep
 
 sys.stdout.reconfigure(encoding='utf-8')
@@ -540,3 +540,4 @@ def main(page: ft.Page) -> None:
 
 
 ft.app(target=main)
+
